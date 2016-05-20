@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Login and Reg SUCCESS</title>
+  </head>
+  <body>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<p>{{message}}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<h1>Success! Welcome {{ session['name'] }}</h1>
+	<h4>{{ session['message'] }}</h4>
+  </body>
+</html>

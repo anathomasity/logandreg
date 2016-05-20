@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Login and Reg HOME</title>
+  </head>
+  <body>
+		{% with messages = get_flashed_messages(category_filter=['regis_errors']) %}
+		  {% if messages %}
+		    {% for message in messages %}
+		      <p style="color:red">{{ message }}</p>
+		    {% endfor %}
+		  {% endif %}
+		{% endwith %}
+	<h1>Register</h1>
+	<form action='/users/create' method='post'>
+		First Name: <input type="text" name="first_name"></input>
+		Last Name: <input type="text" name="last_name"></input>
+		Email Address: <input type="text" name="email"></input>
+		Password: <input type="password" name="password"></input>
+		Password Confirmation: <input type="password" name="pw_confirmation"></input>
+		<input type="submit" value="Enter"></input>
+	</form>
+
+		{% with messages = get_flashed_messages(category_filter=['login_errors']) %}
+		  {% if messages %}
+		    {% for message in messages %}
+		      <p style="color:red">{{ message }}</p>
+		    {% endfor %}
+		  {% endif %}
+		{% endwith %}
+	<h1>Log In</h1>
+
+	<form action='/login' method='post'>
+		Email Address: <input type="text" name="email"></input>
+		Password: <input type="password" name="password"></input>
+		<input type="submit" value="Enter"></input>
+	</form>
+  </body>
+</html>
